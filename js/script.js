@@ -17,9 +17,9 @@ function carregarNomesNaTela(){
 }
 carregarNomesNaTela();
 
+let inputNome = document.getElementById('idNome').value;
 document.getElementById('addBtn').addEventListener('click', ()=> {
-    let inputNome = document.getElementById('idNome').value;
-    
+   
     nomes.push(inputNome);
     carregarNomesNaTela();
 });
@@ -31,4 +31,13 @@ document.getElementById('ordBtn').addEventListener('click',()=>{
 document.getElementById('revBtn').addEventListener('click',()=>{
     nomes.reverse();
     carregarNomesNaTela();
+});
+document.getElementById('delBtn').addEventListener('click', ()=>{
+
+    let indice = nomes.indexOf(inputNome);
+    if(indice != -1){
+        nomes.splice(indice,1);
+        carregarNomesNaTela();
+    }
+    
 });
